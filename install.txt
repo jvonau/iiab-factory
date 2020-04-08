@@ -40,7 +40,7 @@ else
 #    git config branch.master.merge refs/heads/master
 #    git checkout release-7.0
     git checkout -b jv-pi-gen #remove for production
-    git pull https://github.com/jvonau/iiab.git pi-gen #remove for production
+    git pull https://github.com/jvonau/iiab.git IIAB-test #remove for production
 fi
 cd $BASE
 echo
