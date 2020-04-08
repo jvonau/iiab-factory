@@ -34,6 +34,7 @@ if [ -d iiab ]; then
     echo -e "REPO iiab EXISTS? Consider 'sudo iiab --reinstall'"
 else
     git clone https://github.com/iiab/iiab --depth 10 --branch master
+    cd iiab
 #    git checkout -b master
 #    git config branch.master.remote origin
 #    git config branch.master.merge refs/heads/master
