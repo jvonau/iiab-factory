@@ -14,6 +14,7 @@ if [ -d iiab-factory ]; then
     cd iiab-factory
     git checkout master
     git pull
+    echo -e "Getting latest pi-gen"
     git branch -D jv-pi-gen || true #remove for production
     git checkout -b jv-pi-gen #remove for production
     git pull https://github.com/jvonau/iiab-factory.git pi-gen #remove for production
@@ -21,7 +22,7 @@ if [ -d iiab-factory ]; then
 else
     echo -e "Cloning iiab-factory"
 #    git clone https://github.com/iiab/iiab-factory --depth 1 # for production
-    git clone https://github.com/iiab/iiab-factory #remove for production
+    git clone https://github.com/iiab/iiab-factory --depth 10 #remove for production
     cd iiab-factory
     git checkout -b jv-pi-gen #remove for production
     git pull https://github.com/jvonau/iiab-factory.git pi-gen #remove for production
@@ -32,11 +33,11 @@ echo
 if [ -d iiab ]; then
     echo -e "REPO iiab EXISTS? Consider 'sudo iiab --reinstall'"
 else
-    git clone https://github.com/iiab/iiab --depth 10 --branch release-7.0
-    git checkout -b master
-    git config branch.master.remote origin
-    git config branch.master.merge refs/heads/master
-    git checkout release-7.0
+    git clone https://github.com/iiab/iiab --depth 10 --branch master
+#    git checkout -b master
+#    git config branch.master.remote origin
+#    git config branch.master.merge refs/heads/master
+#    git checkout release-7.0
     git checkout -b jv-pi-gen #remove for production
     git pull https://github.com/jvonau/iiab.git pi-gen #remove for production
 fi
@@ -45,11 +46,12 @@ echo
 if [ -d iiab-admin-console ]; then
     echo -e "REPO iiab-admin-console EXISTS? Consider 'sudo iiab --reinstall'"
 else
-    git clone https://github.com/iiab/iiab-admin-console --depth 1 --branch v0.3.7
-    git checkout -b master
-    git config branch.master.remote origin
-    git config branch.master.merge refs/heads/master
-    git checkout v0.3.7
+    git clone https://github.com/iiab/iiab-admin-console --depth 10 --branch master
+#v0.3.7
+#    git checkout -b master
+#    git config branch.master.remote origin
+#    git config branch.master.merge refs/heads/master
+#    git checkout v0.3.7
 fi
 
 # Run install script!
