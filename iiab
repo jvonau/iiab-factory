@@ -51,6 +51,7 @@ FLAGDIR=$CONFDIR/install-flags
 REINSTALL=""
 INTERACTIVE=1
 UPDATE=0
+
 if [ "$1" = "--non-interactive" ]; then
     shift 1
     INTERACTIVE=0
@@ -60,6 +61,7 @@ if [ "$1" = "--update" ]; then
     shift 1
     rm $FLAGS/iiab*complete || true
     UPDATE=1
+    REINSTALL="--reinstall"
 fi
 
 if [ "$1" = "--reinstall" ]; then
@@ -141,7 +143,6 @@ check_user_pwd() {
 # B. Ask for password change if pi/raspberry default remains
 if check_user_pwd "pi" "raspberry"; then
     echo -e "\n\nRaspberry Pi's are COMPROMISED often if the default password is not changed!\n"
-
     echo -n "What password do you want for GNU/Linux user 'pi' ? "
     read -t 5 ans < /dev/tty    # Whines but doesn't change password if [Enter]
     echo pi:"$ans" | chpasswd || true    # Overrides 'set -e'
@@ -279,7 +280,7 @@ cd $BASEDIR/iiab/
 ./iiab-install $REINSTALL
 
 echo -e "Install Admin Console... (also runs iiab-get-kiwix-cat to d/l Kiwix catalog, and installs Dynamic Menuing for /library/www/html/home/index.html)\n"
-if [ ! -f $FLAGDIR/iiab-admin-console-complete ]; then
+if [ ! -f $FLAGDIR/iiab-admin-console-complete ] || [ UPDATE == 1 ]; then
     cd $BASEDIR/iiab-admin-console
     ./install
     touch $FLAGDIR/iiab-admin-console-complete
