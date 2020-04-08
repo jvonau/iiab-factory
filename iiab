@@ -70,19 +70,19 @@ if [ "$1" = "--reinstall" ]; then
 fi
 
 check_branch(){
-    cd $BASE/iiab
+    cd $BASEDIR/iiab
     git branch | grep release-7 | wc -l
 }
 
 use_master(){
-    cd $BASE
+    cd $BASEDIR
     if [ -d iiab ]; then
         cd iiab
         git checkout -b master || true # covers older curls of release-7.0
         git config branch.master.remote origin # covers older curls of release-7.0
         git config branch.master.merge refs/heads/master # covers older curls of release-7.0
     fi
-    cd $BASE
+    cd $BASEDIR
     if [ -d iiab-admin-console ]; then
         cd iiab-admin-console
         git checkout -b master || true # covers older curls of release-7.0
@@ -201,13 +201,13 @@ else
     echo
     case $local_vars_size in
         1)
-            cp $BASE/iiab/vars/local_vars_min.yml local_vars.yml
+            cp $BASEDIR/iiab/vars/local_vars_min.yml local_vars.yml
             ;;
         3)
-            cp $BASE/iiab/vars/local_vars_big.yml local_vars.yml
+            cp $BASEDIR/iiab/vars/local_vars_big.yml local_vars.yml
             ;;
         *)
-            cp $BASE/iiab/vars/local_vars_medium.yml local_vars.yml
+            cp $BASEDIR/iiab/vars/local_vars_medium.yml local_vars.yml
             ;;
     esac
 
