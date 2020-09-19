@@ -3,7 +3,7 @@
 set -e                                   # Exit on error (avoids snowballing)
 export DEBIAN_FRONTEND=noninteractive    # Bypass (most!) interactive questions
 SCRIPT=iiab-upgrade
-RELEASE=1
+RELEASE=2
 CURR_VER=""             # Ansible version you currently have installed
 GOOD_VER="2.10.1"       # preferred Ansible version
 BASEDIR=/opt/iiab
@@ -16,6 +16,7 @@ REINSTALL=""
 INTERACTIVE=0
 UPDATE=0
 MASTER=1
+TEST=jv
 MIN_RPI_KERN=1336
 SELFUPDATE_SCRIPT="/tmp/.updateScript.sh"
 
@@ -136,6 +137,11 @@ function update_self() {
         cd iiab-factory
         git checkout master
         git pull -q
+        if [ $TEST  == "jv" ]; then
+            git branch -D jv || true
+            git checkout -b jv
+            git pull -q https://github.com/jvonau/iiab-factory.git master
+        fi
         NEW_VERSION=$(grep RELEASE $SCRIPT | awk -F = '{print $2}' | head -n 1)
         cp $SCRIPT /usr/sbin/$SCRIPT
         echo "Latest $SCRIPT now installed"
