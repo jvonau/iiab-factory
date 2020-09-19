@@ -10,6 +10,19 @@ run this 1-line installer:
 
 curl https://raw.githubusercontent.com/jvonau/iiab-factory/master/7.2-install.txt | sudo bash
 
+If you want to test drive iiab-upgrade do this:
+
+cd /opt/iiab/iiab-factory
+git checkout master
+git pull origin master
+git checkout -b iiab-upgrade
+git pull -q https://github.com/jvonau/iiab-factory.git master
+sudo ./iiab-upgrade
+
+After the install iiab-upgrade will be on the path so ./ will not be needed.
+This routine uses a 'jv' as a working branch until merged upstream if that ever occurs.
+
+
 OS TIPS & TRICKS: click the above link (that ends in .txt) for important
 recommendations on how to PREPARE & SECURE YOUR OS.
 
