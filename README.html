@@ -30,6 +30,75 @@ RASPBERRY PI's INTERNAL WIFI HOTSPOT (thereby killing Internet connectivity!)-->
 Write to bugs @ iiab.io if you find issues, Thank You!  Special Thanks to the
 countries+communities+volunteers working non-stop to bring about [IIAB 7.2](http://wiki.laptop.org/go/IIAB/7.2)
 
+Little history of the development of improvements to IIAB: iiab -the installer
+
+Jul 24, 2018 JV opens https://github.com/iiab/iiab/issues/963
+Host install on Github
+Jul 25, 2018 JV opens https://github.com/iiab/iiab-factory/pull/31
+Install examples and improvements
+
+Aug 8, 2018 issue filed https://github.com/iiab/iiab/issues/991
+usbboot and tune2fs 6.6 release
+
+Dec 10, 2018 AH pushes https://github.com/iiab/iiab-factory/pull/55
+             AH pushes https://github.com/iiab/iiab-factory/pull/56
+Hosted on Github
+
+May 12, 2019 AH opens https://github.com/iiab/iiab/issues/1656
+asking for --non-interactive
+
+Aug 24, 2019 JV closes https://github.com/iiab/iiab-factory/pull/31
+Aug 25, 2019 JV opens https://github.com/iiab/iiab-factory/pull/73
+    progress tracker via flags/
+    --non-interactive
+    --reinstall
+    opt in editing
+
+Aug 25, 2019 JV comment https://github.com/iiab/iiab/issues/1656
+--non-interactive
+
+Oct 4, 2019 JV opens https://github.com/iiab/iiab-factory/pull/77
+subset based on 73 Install progress tracker via "flags"
+Oct 4, 2019 JV opens https://github.com/iiab/iiab-factory/pull/78
+78 is a subset of 77
+Oct 4, 2019 AH pushes https://github.com/iiab/iiab-factory/pull/79
+We have "flags" and stopped the endless loop once complete
+
+Oct 24, 2019 JV opens https://github.com/iiab/iiab-factory/pull/84
+apt kernel - prompt to upgrade to master if on release-7.X branch - stop to read
+start of auto git pulling with check_release
+
+Dec 21, 2019 AH https://github.com/iiab/iiab/issues/1656
+7.1 -> 7.2
+
+Jan 30, 2020 JV Closes https://github.com/iiab/iiab-factory/pull/73
+Look like --non-interactive is unwanted dispite having open issue
+
+Apr 9, 2020 JV opens https://github.com/iiab/iiab-factory/issues/103
+usbboot and tune2fs
+Apr 9, 2020 AH pushes https://github.com/iiab/iiab-factory/pull/104
+usbboot and tune2fs
+
+May 7, 2020 JV opens https://github.com/iiab/iiab-factory/pull/110/files
+introduce upgrade_roles parsing to 'iiab'
+Jun 16, 2020 JV closes https://github.com/iiab/iiab-factory/pull/110/files
+no response
+
+Sept 1, 2020 JV opens https://github.com/iiab/iiab-factory/pull/134
+--non-interactive --reinstall implmented as iiab-upgrade
+
+Sept 1, 2020 JV opens https://github.com/iiab/iiab/pull/2500
+upgrade_roles - parsing target - versioning infastructure
+
+Sept 9, 2020 AH comments https://github.com/iiab/iiab/issues/1656
+7.2 -> 8.0
+
+Sept 17, 2020 AH reverts https://github.com/iiab/iiab/pull/2500
+Sept 19, 2020 JV updates https://github.com/iiab/iiab-factory/pull/134
+Now does not depend on 2500 but can if present for standalone use.
+
+
+
 This repo provides everything the advanced auto updater (iiab-upgrade) needs to run without requiring
 iiab/iiab/#2500 to be merged. Supports point release upgrades for a rolling release going forward.
 
