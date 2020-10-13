@@ -430,7 +430,7 @@ if [ -d /library/ka-lite ]; then
         echo -e "$FLAGDIR/kalite-zone-complete\n"
     fi
 
-    echo -e "\nInstall KA Lite's mandatory 0.9 GB English Pack... (en.zip)\n"
+    echo -e "\nInstall KA Lite's mandatory 0.9 GB English Pack... en.zip\n"
     if [ ! -f $FLAGDIR/kalite-en.zip-complete ]; then
         #echo -e 'Now retrieving it...\n'
         cd /tmp
