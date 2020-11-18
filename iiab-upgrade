@@ -3,7 +3,7 @@
 set -e                                   # Exit on error (avoids snowballing)
 export DEBIAN_FRONTEND=noninteractive    # Bypass (most!) interactive questions
 SCRIPT=iiab-upgrade
-RELEASE=4
+RELEASE=5
 CURR_VER=""             # Ansible version you currently have installed
 GOOD_VER="2.10.1"       # Trigger point for anisble forced reinstall
 BASEDIR=/opt/iiab
